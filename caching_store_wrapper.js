@@ -61,7 +61,7 @@ const initializedKey = '$checkedInit';
   all of the items provided.
 */
 function CachingStoreWrapper(underlyingStore, ttl, description) {
-  const cache = ttl ? new NodeCache({ stdTTL: ttl }) : null;
+  const cache = ttl ? new NodeCache({ stdTTL: ttl, useClones: false }) : null;
   const queue = new UpdateQueue();
   let initialized = false;
 
